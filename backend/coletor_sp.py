@@ -64,15 +64,17 @@ def _coletar_fonte(fonte):
 
 def _extrair_links_noticias(soup, url_base):
     links = set()
-    excluir = ['#', 'javascript:', 'mailto:', '/tag/', '/categoria/', '/page/', 'login', 'cadastro', '.pdf', '.jpg', '.png',
-               '/alesp/', '/documentacao/', '/deputado/', '/comissao/', '/institucional/', '/legislacao/',
-               '/frentes-parlamentares', '/repasses-', '/simbolos-', '/votacoes-', '/sobre-o-portal',
-               '/central-de-atendimento', '/pesquisa-proposicoes', '/ouvidoria']
+    excluir = ['#', 'javascript:', 'mailto:', '/tag/', '/categoria/', '/page/', 'login', 'cadastro', '.pdf', '.jpg', '.png']
+    is_alesp = 'al.sp.gov.br' in url_base
 
     for a in soup.find_all('a', href=True):
         href = a['href'].strip()
         if any(e in href.lower() for e in excluir):
             continue
+
+        if is_alesp:
+            if '/noticia/' not in href:
+                continue
 
         if '1dmy' in href and 'urile' in href and 'noticias' in href:
             full = url_base.rstrip('/') + '/noticias/' + href
