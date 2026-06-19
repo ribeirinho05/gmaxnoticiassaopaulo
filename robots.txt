@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gmaxnoticiassp.com.br/sitemap.xml
