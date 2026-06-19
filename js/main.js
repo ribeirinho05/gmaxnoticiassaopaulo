@@ -138,7 +138,7 @@
         var show = filtered.slice(0, page * perPage);
         var cats = typeof CATEGORIAS !== 'undefined' ? CATEGORIAS : {};
         var repCard = curCat === 'todas' ? '<div class="card-h card-h-rep" onclick="window.location.href=\'reportagem-quantagropharma.html\'">' +
-            '<div class="card-h-img"><img src="img/computador-quantico.webp" alt="QuantAgroPharma" loading="lazy">' +
+            '<div class="card-h-img"><img src="img/rafael-reportagem.png" alt="Rafael Erasmo de Oliveira Assis" loading="lazy">' +
             '<span class="card-h-badge" style="background:#E63946">Reportagem Especial</span></div>' +
             '<div class="card-h-body">' +
             '<div class="card-h-title">Empresário paranaense radicado em Sinop desenvolve método inédito para computadores quânticos</div>' +
