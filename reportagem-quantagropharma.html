@@ -18,34 +18,29 @@
         .rep-hero {
             position: relative;
             width: 100%;
-            min-height: 70vh;
-            background: linear-gradient(160deg, var(--charcoal) 0%, #0a0a18 50%, var(--red-dark) 150%);
+            height: 520px;
             display: flex;
-            align-items: flex-end;
             overflow: hidden;
         }
-        .rep-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
-            opacity: 0.12;
-            mix-blend-mode: luminosity;
+        .rep-hero-left {
+            width: 50%; height: 100%; overflow: hidden;
         }
-        .rep-hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(transparent, rgba(10,10,24,0.95));
+        .rep-hero-left img {
+            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5);
+        }
+        .rep-hero-right {
+            width: 50%; height: 100%; overflow: hidden;
+        }
+        .rep-hero-right img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top center;
         }
         .rep-hero-content {
-            position: relative;
+            position: absolute;
+            bottom: 0; left: 0; width: 50%; height: 100%;
             z-index: 2;
-            max-width: 900px;
-            padding: 60px 40px 55px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(transparent 30%, rgba(10,10,24,0.9));
         }
         .rep-badge {
             display: inline-flex;
@@ -403,14 +398,23 @@
         .rep-back:hover { opacity: 0.7; }
 
         @media (max-width: 768px) {
-            .rep-hero { min-height: 55vh; }
-            .rep-hero h1 { font-size: 1.75rem; }
-            .rep-hero-content { padding: 36px 20px 40px; }
-            .rep-hero-sub { font-size: 0.95rem; }
+            .rep-hero { height: 380px; }
+            .rep-hero-left { width: 40%; }
+            .rep-hero-right { width: 60%; }
+            .rep-hero h1 { font-size: 1.2rem; }
+            .rep-hero-content { width: 100%; padding: 20px 16px; }
+            .rep-hero-sub { font-size: 0.8rem; }
             .rep-info-grid { grid-template-columns: 1fr; }
             .rep-numbers { flex-direction: column; }
             .rep-quote { padding: 30px 24px; }
             .rep-quote p { font-size: 1.08rem; }
+        }
+        @media (max-width: 480px) {
+            .rep-hero { height: 320px; }
+            .rep-hero-left { width: 35%; }
+            .rep-hero-right { width: 65%; }
+            .rep-hero h1 { font-size: 1rem; }
+            .rep-hero-sub { display: none; }
         }
     </style>
 </head>
@@ -433,6 +437,12 @@
 
     <!-- HERO -->
     <section class="rep-hero">
+        <div class="rep-hero-left">
+            <img src="img/computador-quantico.webp" alt="Computador Quântico">
+        </div>
+        <div class="rep-hero-right">
+            <img src="img/rafael-reportagem.png" alt="Rafael Erasmo de Oliveira Assis">
+        </div>
         <div class="rep-hero-content">
             <div class="rep-badge">
                 <span class="material-icons">bolt</span>
